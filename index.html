@@ -1,15 +1,294 @@
-<!doctype html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TabunganKu</title><link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
-<body><div class="wrap"><header><div><small>FINANCE TRACKER</small><h1>Tabungan<span>Ku</span></h1></div><button id="theme">☀</button></header>
-<section id="auth" class="card"><h2>TabunganKu</h2><p>Simpan tabungan kamu di cloud.</p><form id="authForm"><label>Email</label><input id="email" type="email" required placeholder="email@contoh.com"><label>Password</label><input id="password" type="password" required placeholder="Minimal 6 karakter"><button class="primary" id="authBtn">Masuk</button></form><button class="secondary" id="toggle">Belum punya akun? Daftar</button><div id="msg"></div></section>
-<main id="app" class="hide"><div class="user"><span id="userEmail"></span><button id="logout">Keluar</button></div>
-<section class="hero"><div><p>Total tabungan</p><h2 id="total">Rp0</h2><small id="count">Belum ada transaksi</small></div><b>Rp</b></section>
-<div class="stats"><div class="card"><small>Bulan ini</small><strong id="month">Rp0</strong></div><div class="card"><small>Rata-rata</small><strong id="avg">Rp0</strong></div></div>
-<section class="card"><div class="row"><div><h3>Target tabungan</h3><small id="targetText">Belum ada target</small></div><button id="targetBtn">Atur Target</button></div><div class="bar"><i id="progress"></i></div><div class="row tiny"><span id="percent">0%</span><span id="remain">Tanpa target</span></div></section>
-<section class="card"><h3>Tambah tabungan</h3><div class="tabs"><button class="active" data-p="Harian">Harian</button><button data-p="Mingguan">Mingguan</button><button data-p="Bulanan">Bulanan</button></div>
-<form id="saveForm"><label>Jumlah</label><div class="money"><b>Rp</b><input id="amount" inputmode="numeric" placeholder="3.000.000" required></div><div class="cols"><div><label>Tanggal</label><input id="date" type="date" required></div><div><label>Catatan</label><input id="note" placeholder="Contoh: Gaji"></div></div><button class="primary">＋ Simpan Tabungan</button></form></section>
-<section class="card"><div class="row"><div><h3>Riwayat</h3><small>Data dari Supabase</small></div></div><div id="history"></div></section></main></div>
-<div id="modal" class="modal hide"><div class="modalbox"><button id="close">×</button><h3>Atur target</h3><label>Target</label><div class="money"><b>Rp</b><input id="target" inputmode="numeric" placeholder="20.000.000"></div><button class="primary" id="saveTarget">Simpan Target</button><button class="secondary" id="deleteTarget">Hapus Target</button></div></div>
-<script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aang Saputra | Web Developer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Aang<span>.</span></div>
+
+        <div class="nav-menu" id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#skills">Skill</a>
+            <a href="#projects">Project</a>
+            <a href="#contact">Kontak</a>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <section id="home" class="hero">
+
+        <div class="profile-wrap">
+            <img src="profile.jpg" alt="Aang Saputra" class="profile-photo">
+        </div>
+
+        <div class="hero-text">
+            <p class="hello">HALO, SAYA</p>
+
+            <h1>
+                Aang <span>Saputra</span>
+            </h1>
+
+            <h2>Web Developer & Problem Solver</h2>
+
+            <p class="description">
+                Saya membangun aplikasi web, REST API, dan tools automation
+                menggunakan teknologi modern. Fokus pada clean code,
+                backend, dan pengalaman pengguna.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">
+                    Lihat Project
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Hubungi Saya
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="code-window">
+
+                <div class="window-top">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <pre><span class="purple">const</span> developer = {
+    name: <span class="green">"Aang Saputra"</span>,
+    role: <span class="green">"Web Developer"</span>,
+    skills: [
+        <span class="green">"Python"</span>,
+        <span class="green">"JavaScript"</span>,
+        <span class="green">"Node.js"</span>,
+        <span class="green">"PHP"</span>
+    ]
+};</pre>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section id="about" class="section">
+
+        <div class="section-title">
+            <p>TENTANG SAYA</p>
+            <h2>Yang Saya Kerjakan</h2>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-box">
+                <div class="about-icon">💻</div>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Membuat website dengan HTML, CSS, JavaScript
+                    dan teknologi backend.
+                </p>
+            </div>
+
+            <div class="about-box">
+                <div class="about-icon">🐍</div>
+
+                <h3>Python Automation</h3>
+
+                <p>
+                    Membuat tools CLI dan automation untuk
+                    menyederhanakan pekerjaan yang berulang.
+                </p>
+            </div>
+
+            <div class="about-box">
+                <div class="about-icon">⚙️</div>
+
+                <h3>Backend & API</h3>
+
+                <p>
+                    Membangun REST API, authentication,
+                    database, dan aplikasi backend.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="skills" class="section dark">
+
+        <div class="section-title">
+            <p>TEKNOLOGI</p>
+            <h2>My Skills</h2>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill">
+                <div><span>HTML</span><b>85%</b></div>
+                <div class="progress"><span style="width:85%"></span></div>
+            </div>
+
+            <div class="skill">
+                <div><span>CSS</span><b>75%</b></div>
+                <div class="progress"><span style="width:75%"></span></div>
+            </div>
+
+            <div class="skill">
+                <div><span>JavaScript</span><b>70%</b></div>
+                <div class="progress"><span style="width:70%"></span></div>
+            </div>
+
+            <div class="skill">
+                <div><span>PHP</span><b>95%</b></div>
+                <div class="progress"><span style="width:95%"></span></div>
+            </div>
+
+            <div class="skill">
+                <div><span>Python</span><b>80%</b></div>
+                <div class="progress"><span style="width:80%"></span></div>
+            </div>
+
+            <div class="skill">
+                <div><span>Node.js</span><b>75%</b></div>
+                <div class="progress"><span style="width:75%"></span></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects" class="section">
+
+        <div class="section-title">
+            <p>PORTOFOLIO</p>
+            <h2>Project Saya</h2>
+        </div>
+
+        <div class="projects">
+
+            <div class="project-card">
+                <div class="project-number">01</div>
+
+                <h3>Node.js REST API</h3>
+
+                <p>
+                    REST API management system dengan Express,
+                    SQLite, JWT authentication, bcrypt,
+                    CRUD project, dan dashboard.
+                </p>
+
+                <div class="tags">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>SQLite</span>
+                    <span>JWT</span>
+                </div>
+
+                <a
+                    href="https://github.com/kakatoji/node-rest-api"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link">
+                    Lihat di GitHub →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">02</div>
+
+                <h3>Python File Organizer</h3>
+
+                <p>
+                    CLI automation tool untuk scanning,
+                    klasifikasi, pengorganisasian file,
+                    logging, duplicate handling, dan statistik.
+                </p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Automation</span>
+                    <span>CLI</span>
+                    <span>Logging</span>
+                </div>
+
+                <a
+                    href="https://github.com/kakatoji/python-file-organizer"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link">
+                    Lihat di GitHub →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">03</div>
+
+                <h3>Web Hitung</h3>
+
+                <p>
+                    Aplikasi web hitung dan tabungan sederhana
+                    menggunakan HTML, CSS, dan JavaScript.
+                </p>
+
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Web</span>
+                </div>
+
+                <a
+                    href="projects/hitung"
+                    class="project-link">
+                    Lihat Project →
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact" class="contact">
+
+        <p>TERTARIK BEKERJA SAMA?</p>
+
+        <h2>
+            Mari buat sesuatu<br>
+            yang <span>menarik.</span>
+        </h2>
+
+        <p class="contact-text">
+            Jika ingin berdiskusi mengenai project,
+            development atau pekerjaan freelance,
+            silakan hubungi saya.
+        </p>
+
+        <a href="mailto:aangsaputra550@gmail.com" class="btn primary">
+            Kirim Email
+        </a>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Aang Saputra</p>
+        <p>Built with ❤️ & code</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TabunganKu</title><link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
+<body><div class="wrap"><header><div><small>FINANCE TRACKER</small><h1>Tabungan<span>Ku</span></h1></div><button id="theme">☀</button></header>
+<section id="auth" class="card"><h2>TabunganKu</h2><p>Simpan tabungan kamu di cloud.</p><form id="authForm"><label>Email</label><input id="email" type="email" required placeholder="email@contoh.com"><label>Password</label><input id="password" type="password" required placeholder="Minimal 6 karakter"><button class="primary" id="authBtn">Masuk</button></form><button class="secondary" id="toggle">Belum punya akun? Daftar</button><div id="msg"></div></section>
+<main id="app" class="hide"><div class="user"><span id="userEmail"></span><button id="logout">Keluar</button></div>
+<section class="hero"><div><p>Total tabungan</p><h2 id="total">Rp0</h2><small id="count">Belum ada transaksi</small></div><b>Rp</b></section>
+<div class="stats"><div class="card"><small>Bulan ini</small><strong id="month">Rp0</strong></div><div class="card"><small>Rata-rata</small><strong id="avg">Rp0</strong></div></div>
+<section class="card"><div class="row"><div><h3>Target tabungan</h3><small id="targetText">Belum ada target</small></div><button id="targetBtn">Atur Target</button></div><div class="bar"><i id="progress"></i></div><div class="row tiny"><span id="percent">0%</span><span id="remain">Tanpa target</span></div></section>
+<section class="card"><h3>Tambah tabungan</h3><div class="tabs"><button class="active" data-p="Harian">Harian</button><button data-p="Mingguan">Mingguan</button><button data-p="Bulanan">Bulanan</button></div>
+<form id="saveForm"><label>Jumlah</label><div class="money"><b>Rp</b><input id="amount" inputmode="numeric" placeholder="3.000.000" required></div><div class="cols"><div><label>Tanggal</label><input id="date" type="date" required></div><div><label>Catatan</label><input id="note" placeholder="Contoh: Gaji"></div></div><button class="primary">＋ Simpan Tabungan</button></form></section>
+<section class="card"><div class="row"><div><h3>Riwayat</h3><small>Data dari Supabase</small></div></div><div id="history"></div></section></main></div>
+<div id="modal" class="modal hide"><div class="modalbox"><button id="close">×</button><h3>Atur target</h3><label>Target</label><div class="money"><b>Rp</b><input id="target" inputmode="numeric" placeholder="20.000.000"></div><button class="primary" id="saveTarget">Simpan Target</button><button class="secondary" id="deleteTarget">Hapus Target</button></div></div>
+<script src="app.js"></script></body></html>
